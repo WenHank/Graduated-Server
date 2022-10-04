@@ -12,7 +12,7 @@ section {
   position: absolute;
   height: 60%;
   width: 100%;
-  max-width: 700px;
+  max-width: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,13 +21,28 @@ section {
   filter: blur(50px);
 }
 .blobs{
+  margin: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 300px;
-  margin: 70px 0 70px 0;
 }
 .albumImg{
   max-width: 100px;
   z-index: 2;
+}
+.row-class{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.col-class{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+h5{
+  color: rgb(70, 107, 140);
+  z-index: 1;
 }
