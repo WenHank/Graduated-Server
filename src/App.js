@@ -64,7 +64,11 @@ function App() {
   const Part1 = () => {
     return (
       <div className="clo-class">
-        <h3>第一部分</h3>
+        <video autoPlay muted loop id="myVideo">
+          <source src="../video/ocean.mp4" type="video/mp4" />
+        </video>
+        <h5>頻率：{frequence} Hz</h5>
+        <h5>聲音：{noise} db</h5>
         <div className="col-class">
           <div className="row-class">
             <div

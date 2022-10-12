@@ -1,7 +1,14 @@
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
 section {
   position: relative;
   text-align: center;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,6 +50,6 @@ section {
   justify-content: center;
 }
 h5{
-  color: rgb(70, 107, 140);
+  color: rgb(255, 255, 255);
   z-index: 1;
 }
