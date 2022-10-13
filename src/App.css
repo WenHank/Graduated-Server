@@ -49,7 +49,87 @@ section {
   align-items: center;
   justify-content: center;
 }
+.fish1{
+  position: relative;
+  width: 100px;
+}
+.fish5{
+  position: relative;
+  width: 100px;
+}
+.fish3{
+  position: relative;
+  width: 80px;
+  margin-left: -80px;
+}
+.fish4{
+  position: relative;
+  width: 80px;
+  margin-left: 60px;
+}
+.fish2 {
+  position: relative;
+  width: 60px;
+  margin-left: 100px;
+}
 h5{
   color: rgb(255, 255, 255);
   z-index: 1;
 }
+.aquarium{
+  width: 100%;
+}
+.slide-slow {
+  width: 100%;
+  position: absolute;
+  flex-direction: column;
+  display: flex;
+}
+
+.swimming {
+  animation: slide-slow 3s forwards;
+  transform: scaleX(1);
+}
+.no-swimming{
+  left: 30%;
+}
+.back-swimming{
+  animation: back-slide-slow 3s forwards;
+  transform: scaleX(-1);
+}
+
+@keyframes slide-slow {
+  from {
+    left: 30%;
+  }
+  to {
+    left: 120%;
+  }
+}
+
+@keyframes back-slide-slow {
+  from {
+    left: 120%;
+  }
+  to {
+    left: 30%;
+  }
+}
+
+/* @keyframes slide-slow-img {
+  0% {
+    transform: scaleX(1);
+  }
+  48% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(-1);
+  }
+  98% {
+    transform: scaleX(-1);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+} */
