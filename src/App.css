@@ -60,7 +60,9 @@ section {
 .fish3{
   position: relative;
   width: 80px;
-  margin-left: -80px;
+  margin-left: -40px;
+  position: absolute;
+  top: 100px;
 }
 .fish4{
   position: relative;
@@ -79,24 +81,79 @@ h5{
 .aquarium{
   width: 100%;
 }
-.slide-slow {
+.slide-slow-one , .slide-slow-two , .slide-slow-three {
   width: 100%;
   position: absolute;
   flex-direction: column;
   display: flex;
 }
-
+.slide-slow-two{
+  top: 450px;
+  margin-left: -100px;
+}
+.slide-slow-three{
+  top: 300px;
+  right: 10px;
+  margin-right: -500px;
+}
 .swimming {
   animation: slide-slow 3s forwards;
   transform: scaleX(1);
 }
-.no-swimming{
-  left: 30%;
-}
+
 .back-swimming{
   animation: back-slide-slow 3s forwards;
   transform: scaleX(-1);
 }
+
+.swimming-normal-one {
+  animation: slide-slow-normal 6s, slide-slow-img-normal 6s;
+  animation-iteration-count: infinite;
+}
+.swimming-normal-two {
+  animation: slide-slow-normal 10s, slide-slow-img-normal 10s;
+  animation-iteration-count: infinite;
+}
+.swimming-normal-three {
+  animation: slide-slow-normal 8s, slide-slow-img-normal 8s;
+  animation-iteration-count: infinite;
+}
+@keyframes slide-slow-normal {
+  0% {
+    left: calc(100% - 88px);
+  }
+  49.99% {
+    left: 0%;
+  }
+  50% {
+    left: 0%;
+  }
+  99.99% {
+    left: calc(100% - 88px);
+  }
+  100% {
+    left: calc(100% - 88px);
+  }
+}
+
+@keyframes slide-slow-img-normal {
+  0% {
+    transform: scaleX(1);
+  }
+  48% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(-1);
+  }
+  98% {
+    transform: scaleX(-1);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
 
 @keyframes slide-slow {
   from {
@@ -116,20 +173,3 @@ h5{
   }
 }
 
-/* @keyframes slide-slow-img {
-  0% {
-    transform: scaleX(1);
-  }
-  48% {
-    transform: scaleX(1);
-  }
-  50% {
-    transform: scaleX(-1);
-  }
-  98% {
-    transform: scaleX(-1);
-  }
-  100% {
-    transform: scaleX(1);
-  }
-} */

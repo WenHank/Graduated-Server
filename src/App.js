@@ -13,7 +13,9 @@ function App() {
   const [frequence, setFrequence] = useState(0);
   const [show, setShow] = useState(0);
   const [dur, setDur] = useState("10000ms");
-  const [fone, setFone] = useState("no-swimming");
+  const [fone, setFone] = useState("swimming-normal-one");
+  const [ftwo, setFtwo] = useState("swimming-normal-two");
+  const [fthree, setFthree] = useState("swimming-normal-three");
   //read
   useEffect(() => {
     onValue(ref(db), (snapshot) => {
@@ -22,34 +24,73 @@ function App() {
         if (obj.uuid === "06f2462716c") {
           setNoise(obj.noise);
           setFrequence(obj.frequence);
-          console.log(frequence);
-          console.log(noise);
-          if (parseInt(obj.frequence) > 60 && parseInt(obj.noise) > 70) {
-            console.log("fuck");
+          if (parseInt(obj.frequence) === 0 && parseInt(obj.noise) === 0) {
+            setFone("swimming-normal-one");
+            setFtwo("swimming-normal-two");
+            setFthree("swimming-normal-three");
+          } else if (
+            parseInt(obj.frequence) > 0 &&
+            parseInt(obj.frequence) < 30 &&
+            parseInt(obj.noise) > 70
+          ) {
             setFone("swimming");
-          } else {
-            setFone("back-swimming");
+            setFtwo("swimming-normal-two");
+            setFthree("swimming-normal-three");
+          } else if (
+            parseInt(obj.frequence) > 30 &&
+            parseInt(obj.frequence) < 60 &&
+            parseInt(obj.noise) > 70
+          ) {
+            setFone("swimming-normal-one");
+            setFtwo("swimming");
+            setFthree("swimming-normal-three");
+          } else if (
+            parseInt(obj.frequence) > 60 &&
+            parseInt(obj.frequence) < 100 &&
+            parseInt(obj.noise) > 70
+          ) {
+            setFone("swimming-normal-one");
+            setFtwo("swimming-normal-two");
+            setFthree("swimming");
           }
-          if (parseInt(obj.frequence) < 21) {
+          if (parseInt(obj.frequence) < 21 && parseInt(obj.frequence) > 0) {
             setShow(1);
-          } else if (parseInt(obj.frequence) < 41) {
+          } else if (
+            parseInt(obj.frequence) < 41 &&
+            parseInt(obj.frequence) >= 21
+          ) {
             setShow(2);
-          } else if (parseInt(obj.frequence) < 61) {
+          } else if (
+            parseInt(obj.frequence) < 61 &&
+            parseInt(obj.frequence) >= 41
+          ) {
             setShow(3);
-          } else if (parseInt(obj.frequence) < 81) {
+          } else if (
+            parseInt(obj.frequence) < 81 &&
+            parseInt(obj.frequence) >= 61
+          ) {
             setShow(4);
-          } else {
+          } else if (parseInt(obj.frequence) >= 81) {
             setShow(5);
           }
-          if (parseInt(obj.noise) < 21) {
+          if (parseInt(obj.noise) < 21 && parseInt(obj.frequence) > 0) {
             setDur("10000ms");
-          } else if (parseInt(obj.noise) < 41) {
+          } else if (
+            parseInt(obj.noise) < 41 &&
+            parseInt(obj.frequence) >= 21
+          ) {
             setDur("1000ms");
-          } else if (parseInt(obj.noise) < 61) {
+          } else if (
+            parseInt(obj.noise) < 61 &&
+            parseInt(obj.frequence) >= 41
+          ) {
             setDur("100ms");
-          } else if (parseInt(obj.noise) < 81) {
+          } else if (
+            parseInt(obj.noise) < 81 &&
+            parseInt(obj.frequence) >= 61
+          ) {
             setDur("10ms");
-          } else {
+          } else if (parseInt(obj.frequence) >= 81) {
             setDur("1ms");
           }
         }
@@ -73,12 +114,26 @@ function App() {
   const Part1 = () => {
     return (
       <div className="aquarium">
-        <div className="slide-slow">
-          <img className={`fish1 ` + fone} src="../Img/fish.png" />
-          <img className={`fish2 ` + fone} src="../Img/fish.png" />
-          <img className={`fish3 ` + fone} src="../Img/fish.png" />
-          <img className={`fish4 ` + fone} src="../Img/fish.png" />
-          <img className={`fish5 ` + fone} src="../Img/fish.png" />
+        <div className="slide-slow-one">
+          <img className={`fish1 ` + fone} src="../video/fish01.gif" />
+          <img className={`fish2 ` + fone} src="../video/fish01.gif" />
+          <img className={`fish3 ` + fone} src="../video/fish01.gif" />
+          <img className={`fish4 ` + fone} src="../video/fish01.gif" />
+          <img className={`fish5 ` + fone} src="../video/fish01.gif" />
+        </div>
+        <div className="slide-slow-two">
+          <img className={`fish1 ` + ftwo} src="../video/fish02.gif" />
+          <img className={`fish2 ` + ftwo} src="../video/fish02.gif" />
+          <img className={`fish3 ` + ftwo} src="../video/fish02.gif" />
+          <img className={`fish4 ` + ftwo} src="../video/fish02.gif" />
+          <img className={`fish5 ` + ftwo} src="../video/fish02.gif" />
+        </div>
+        <div className="slide-slow-three">
+          <img className={`fish1 ` + fthree} src="../video/fish03.gif" />
+          <img className={`fish2 ` + fthree} src="../video/fish03.gif" />
+          <img className={`fish3 ` + fthree} src="../video/fish03.gif" />
+          <img className={`fish4 ` + fthree} src="../video/fish03.gif" />
+          <img className={`fish5 ` + fthree} src="../video/fish03.gif" />
         </div>
         <div className="clo-class">
           <video autoPlay muted loop id="myVideo">
